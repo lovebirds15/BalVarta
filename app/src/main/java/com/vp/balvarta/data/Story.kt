@@ -14,24 +14,18 @@ data class Story(
 
 object StoryData {
     /**
-     * YOUR GOOGLE DRIVE FOLDER ID: 1QvB9MRA7Xf3VkSPBEB-eBUrjMYSapbbl
-     * 
-     * OPTION A (GitHub - Recommended): 
-     * 1. Upload your Audio folder to GitHub.
-     * 2. Replace 'YOUR_USERNAME' below.
-     * 
-     * OPTION B (Firebase):
-     * 1. Upload to Firebase Storage and get the folder URL.
+     * GitHub path for audio files.
+     * To update audio:
+     * 1. Upload new .mp3 files to the 'Audio' folder in your GitHub repository.
+     * 2. The BASE_AUDIO_URL below points to the 'raw' version of those files.
      */
-    private const val BASE_AUDIO_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/BalVarta/main/Audio/"
+    private const val BASE_AUDIO_URL =
+        "https://raw.githubusercontent.com/lovebirds15/BalVarta/main/Audio/"
 
     /**
      * Helper to create a properly encoded URL for files with Gujarati characters and spaces.
      */
     private fun getUrl(fileName: String): String {
-        // If you are using Google Drive File IDs instead, you would return:
-        // "https://drive.google.com/uc?export=download&id=$fileName"
-        
         return BASE_AUDIO_URL + Uri.encode(fileName)
     }
 
