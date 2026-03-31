@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -35,14 +36,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.media3.common.util.UnstableApi
-import com.vp.balvarta.R
 import com.vp.balvarta.data.StoryData
 import com.vp.balvarta.viewmodel.AudioPlayerViewModel
 
@@ -185,7 +184,7 @@ fun StoryDetailsScreen(
                         )
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_stop),
+                        imageVector = Icons.Default.Stop,
                         contentDescription = "Stop",
                         tint = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(32.dp)
