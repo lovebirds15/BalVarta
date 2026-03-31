@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Balvarta Gujarati</string>
+    <string name="splash_title">ગુજરાતી વાર્તાઓ</string>
+    <string name="home_title">Stories</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="story_loading">Loading story...</string>
+</resources>
