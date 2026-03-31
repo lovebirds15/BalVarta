@@ -15,10 +15,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-
+import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Star
-
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -187,7 +185,6 @@ fun StoryDetailsScreen(
                         )
                 ) {
                     Icon(
-                        //Icons.Default.Stop,
                         painter = painterResource(id = R.drawable.ic_stop),
                         contentDescription = "Stop",
                         tint = MaterialTheme.colorScheme.secondary,
@@ -206,41 +203,29 @@ fun StoryDetailsScreen(
                         )
                 ) {
                     Icon(
-                        if (playerState.isPlaying)
-//                            Icons.Default.Pause
-                            Icons.Default.Star
-                        else Icons.Default.PlayArrow,
+                        imageVector = if (playerState.isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
                         contentDescription = if (playerState.isPlaying) "Pause" else "Play",
                         tint = MaterialTheme.colorScheme.onPrimary,
                         modifier = Modifier.size(40.dp)
                     )
                 }
                 
-                // Spacer for visual balance (could add forward button here)
+                // Spacer for visual balance
                 Box(modifier = Modifier.size(64.dp))
             }
             
-            Spacer(modifier = Modifier.height(24.dp))
-            
-            // Audio file info
-            Text(
-                text = "Audio: ${story.audioUrl.substringAfterLast("/")}",
-                fontSize = 12.sp,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                textAlign = TextAlign.Center
-            )
+            Spacer(modifier = Modifier.weight(1f))
             
             if (playerState.isLoading) {
-                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = "Loading story...",
                     fontSize = 14.sp,
                     color = MaterialTheme.colorScheme.primary
                 )
+                Spacer(modifier = Modifier.height(16.dp))
             }
             
             if (playerState.errorMessage != null) {
-                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = playerState.errorMessage ?: "Error in Audio Play",
                     fontSize = 14.sp,
@@ -248,6 +233,7 @@ fun StoryDetailsScreen(
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )
+                Spacer(modifier = Modifier.height(16.dp))
             }
         }
     }

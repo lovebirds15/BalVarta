@@ -147,7 +147,7 @@ class AudioPlayerViewModel : ViewModel() {
     
     fun stop() {
         exoPlayer?.let { player ->
-            player.stop()
+            player.pause()
             player.seekTo(0)
             _playerState.value = _playerState.value.copy(
                 isPlaying = false,
